@@ -53,10 +53,11 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Custom ice cream themed colors
+				// Custom ice cream themed colors - updated to match the requested scheme
 				icecream: {
-					blue: '#87CEEB',
-					pink: '#FFB6C1',
+					blue: '#5ED4E3', // Aquamarine-like color
+					pink: '#FFA7C4', // Bright pastel pink
+					yellow: '#FFEBB5', // Bright pastel yellow
 					cream: '#FFFDD0',
 					mint: '#98FB98',
 					chocolate: '#7B3F00',
@@ -102,6 +103,9 @@ export default {
 			},
 			fontFamily: {
 				'ice': ['Comic Sans MS', 'cursive'],
+			},
+			backgroundImage: {
+				'gradient-pastel': 'linear-gradient(90deg, #FFEBB5 0%, #FFA7C4 100%)',
 			}
 		}
 	},

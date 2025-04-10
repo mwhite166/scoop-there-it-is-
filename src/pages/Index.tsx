@@ -32,11 +32,11 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-icecream-blue/30 to-white py-16">
+      <section className="bg-gradient-to-b from-icecream-yellow to-white py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto animate-float">
             <img 
-              src="/placeholder.svg" 
+              src="/lovable-uploads/013a76a0-1e1b-4894-bf24-4d32016e5de0.png" 
               alt="Scoop There It Is Logo" 
               className="h-64 w-auto mx-auto mb-8"
             />
@@ -53,7 +53,7 @@ const Index = () => {
                 </Button>
               </Link>
               <Link to="/cake-decorating">
-                <Button variant="outline" className="px-8 py-6 rounded-full text-lg border-icecream-blue text-icecream-blue hover:bg-icecream-blue/10">
+                <Button variant="outline" className="px-8 py-6 rounded-full text-lg border-icecream-pink text-icecream-pink hover:bg-icecream-pink/10">
                   Custom Ice Cream Cakes
                 </Button>
               </Link>
@@ -90,7 +90,7 @@ const Index = () => {
       </section>
 
       {/* Location Section */}
-      <section className="py-16 bg-icecream-blue/10">
+      <section className="py-16 bg-icecream-pink/10">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             Find Us
@@ -101,10 +101,10 @@ const Index = () => {
                 <MapPin className="text-icecream-blue mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-bold text-xl mb-2">Our Location</h3>
-                  <p className="text-gray-600">123 Ice Cream Way</p>
-                  <p className="text-gray-600">Sweet Tooth City, ST 12345</p>
+                  <p className="text-gray-600">8229 Jefferson Hwy</p>
+                  <p className="text-gray-600">Harahan, LA 70123</p>
                   <a 
-                    href="https://maps.google.com" 
+                    href="https://maps.google.com/?q=8229+Jefferson+Hwy,+Harahan,+LA+70123" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-icecream-blue hover:underline mt-2"
@@ -126,10 +126,16 @@ const Index = () => {
             </div>
             
             <div className="ice-card overflow-hidden h-64 md:h-auto">
-              {/* Replace with an actual map or image of the location */}
-              <div className="bg-icecream-cream h-full w-full flex items-center justify-center">
-                <p className="text-gray-500">Map Placeholder</p>
-              </div>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.4161954262383!2d-90.1953!3d30.0344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a544a352551b%3A0x15623197c7c5a28d!2s8229%20Jefferson%20Hwy%2C%20Harahan%2C%20LA%2070123!5e0!3m2!1sen!2sus!4v1712746901020!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Scoop There It Is Location"
+              ></iframe>
             </div>
           </div>
         </div>

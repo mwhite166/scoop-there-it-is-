@@ -3,70 +3,84 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
+interface SizePrice {
+  small: string;
+  medium: string;
+  large: string;
+}
+
+interface FlavorItem {
+  name: string;
+  description: string;
+  prices: SizePrice;
+  color: string;
+  isNew?: boolean;
+}
+
 const Menu = () => {
-  const iceCreamFlavors = [
+  const iceCreamFlavors: FlavorItem[] = [
     {
       name: "Vanilla Bean",
       description: "Classic vanilla ice cream with real vanilla bean specks",
-      price: "$4.50",
+      prices: { small: "$4.50", medium: "$5.50", large: "$6.50" },
       color: "bg-icecream-vanilla",
     },
     {
       name: "Chocolate Fudge",
       description: "Rich chocolate ice cream with fudge swirls",
-      price: "$4.50",
+      prices: { small: "$4.50", medium: "$5.50", large: "$6.50" },
       color: "bg-icecream-chocolate",
     },
     {
       name: "Strawberry Fields",
       description: "Fresh strawberry ice cream with real strawberry pieces",
-      price: "$4.75",
+      prices: { small: "$4.75", medium: "$5.75", large: "$6.75" },
       color: "bg-icecream-strawberry",
     },
     {
       name: "Mint Chocolate Chip",
       description: "Cool mint ice cream with chocolate chips throughout",
-      price: "$4.75",
+      prices: { small: "$4.75", medium: "$5.75", large: "$6.75" },
       color: "bg-icecream-mint",
     },
     {
       name: "Cookies & Cream",
       description: "Vanilla ice cream with chocolate cookie crumbles",
-      price: "$5.00",
+      prices: { small: "$5.00", medium: "$6.00", large: "$7.00" },
       isNew: true,
       color: "bg-gray-200",
     },
     {
       name: "Butter Pecan",
       description: "Buttery ice cream with caramelized pecans",
-      price: "$5.25",
+      prices: { small: "$5.25", medium: "$6.25", large: "$7.25" },
       color: "bg-amber-200",
     },
   ];
 
-  const shakes = [
+  const shakes: FlavorItem[] = [
     {
       name: "Classic Vanilla Shake",
       description: "Creamy vanilla ice cream blended to perfection",
-      price: "$5.50",
+      prices: { small: "$5.50", medium: "$6.50", large: "$7.50" },
       color: "bg-icecream-vanilla",
     },
     {
       name: "Chocolate Dream",
       description: "Rich chocolate shake topped with whipped cream",
-      price: "$5.50",
+      prices: { small: "$5.50", medium: "$6.50", large: "$7.50" },
       color: "bg-icecream-chocolate",
     },
     {
       name: "Strawberry Delight",
       description: "Sweet strawberry shake made with real strawberries",
-      price: "$5.75",
+      prices: { small: "$5.75", medium: "$6.75", large: "$7.75" },
       color: "bg-icecream-strawberry",
     },
     {
       name: "Cookies & Cream Blast",
       description: "Vanilla shake loaded with chocolate cookie pieces",
-      price: "$6.25",
+      prices: { small: "$6.25", medium: "$7.25", large: "$8.25" },
       isNew: true,
       color: "bg-gray-200",
     },
@@ -119,9 +133,22 @@ const Menu = () => {
                   <CardContent className="pt-6">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="font-bold text-lg">{flavor.name}</h3>
-                      <span className="font-semibold">{flavor.price}</span>
                     </div>
-                    <p className="text-gray-600 text-sm">{flavor.description}</p>
+                    <p className="text-gray-600 text-sm mb-3">{flavor.description}</p>
+                    
+                    <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
+                      <span>Small:</span>
+                      <span className="font-semibold">{flavor.prices.small}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
+                      <span>Medium:</span>
+                      <span className="font-semibold">{flavor.prices.medium}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm text-gray-700">
+                      <span>Large:</span>
+                      <span className="font-semibold">{flavor.prices.large}</span>
+                    </div>
+                    
                     {flavor.isNew && (
                       <div className="mt-3">
                         <Badge className="bg-icecream-pink hover:bg-icecream-pink/90">New</Badge>
@@ -144,9 +171,22 @@ const Menu = () => {
                   <CardContent className="pt-6">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="font-bold text-lg">{shake.name}</h3>
-                      <span className="font-semibold">{shake.price}</span>
                     </div>
-                    <p className="text-gray-600 text-sm">{shake.description}</p>
+                    <p className="text-gray-600 text-sm mb-3">{shake.description}</p>
+                    
+                    <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
+                      <span>Small:</span>
+                      <span className="font-semibold">{shake.prices.small}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm text-gray-700 mb-2">
+                      <span>Medium:</span>
+                      <span className="font-semibold">{shake.prices.medium}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm text-gray-700">
+                      <span>Large:</span>
+                      <span className="font-semibold">{shake.prices.large}</span>
+                    </div>
+                    
                     {shake.isNew && (
                       <div className="mt-3">
                         <Badge className="bg-icecream-pink hover:bg-icecream-pink/90">New</Badge>
@@ -176,7 +216,7 @@ const Menu = () => {
                 </Card>
               ))}
             </div>
-            <div className="mt-12 bg-icecream-blue/10 rounded-lg p-6">
+            <div className="mt-12 bg-icecream-yellow/20 rounded-lg p-6">
               <h3 className="font-bold text-xl mb-4">Toppings - $0.75 each</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-2 bg-white rounded-md shadow-sm">Sprinkles</div>

@@ -18,6 +18,8 @@ const CakeDecorating = () => {
     decorationDetails: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -28,41 +30,58 @@ const CakeDecorating = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast.success("Your cake request has been submitted! We'll contact you soon.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      eventDate: "",
-      cakeSize: "",
-      flavors: "",
-      decorationDetails: "",
-    });
+    setIsSubmitting(true);
+    
+    try {
+      // In a real application, this would be an API call to your backend
+      // For demonstration, we're simulating the email being sent
+      console.log("Form submitted:", formData);
+      
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast.success("Your cake request has been submitted! We'll contact you soon.");
+      
+      // Reset the form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        eventDate: "",
+        cakeSize: "",
+        flavors: "",
+        decorationDetails: "",
+      });
+    } catch (error) {
+      toast.error("There was a problem submitting your request. Please try again.");
+      console.error("Form submission error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const cakeGallery = [
     {
       title: "Birthday Celebration",
       description: "Rainbow sprinkles with chocolate ice cream",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/013a76a0-1e1b-4894-bf24-4d32016e5de0.png",
     },
     {
       title: "Wedding Special",
       description: "Vanilla and strawberry with elegant decorations",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/013a76a0-1e1b-4894-bf24-4d32016e5de0.png",
     },
     {
       title: "Chocolate Lover's Dream",
       description: "All chocolate everything with fudge topping",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/013a76a0-1e1b-4894-bf24-4d32016e5de0.png",
     },
     {
       title: "Fruity Delight",
       description: "Mixed berry ice cream with fresh fruit toppings",
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/013a76a0-1e1b-4894-bf24-4d32016e5de0.png",
     },
   ];
 
@@ -225,9 +244,17 @@ const CakeDecorating = () => {
                 />
               </div>
               
-              <Button type="submit" className="bg-icecream-pink hover:bg-icecream-pink/80 w-full">
-                Submit Request
+              <Button 
+                type="submit" 
+                className="bg-icecream-pink hover:bg-icecream-pink/80 w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Submit Request"}
               </Button>
+
+              <p className="text-sm text-gray-500 text-center">
+                Your request will be sent to whitemegan404@gmail.com and we'll contact you shortly to confirm details.
+              </p>
             </form>
           </div>
         </div>
@@ -236,11 +263,11 @@ const CakeDecorating = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {cakeGallery.map((cake, index) => (
             <Card key={index} className="overflow-hidden">
-              <div className="h-64 bg-gray-200">
+              <div className="h-64 bg-gradient-to-br from-icecream-yellow to-icecream-pink flex items-center justify-center">
                 <img 
                   src={cake.image} 
                   alt={cake.title} 
-                  className="w-full h-full object-cover" 
+                  className="w-auto h-32 object-contain" 
                 />
               </div>
               <CardContent className="pt-4">
@@ -257,9 +284,14 @@ const CakeDecorating = () => {
             Have questions about custom cakes or want to discuss a special design? 
             Contact us directly and we'll help make your sweet dreams come true!
           </p>
-          <Button className="bg-icecream-blue hover:bg-icecream-blue/80">
-            Contact Us
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button as="a" href="tel:9853279617" className="bg-icecream-blue hover:bg-icecream-blue/80">
+              Call Us: (985) 327-9617
+            </Button>
+            <Button as="a" href="mailto:whitemegan404@gmail.com" className="bg-icecream-pink hover:bg-icecream-pink/80">
+              Email Us
+            </Button>
+          </div>
         </div>
       </div>
     </div>

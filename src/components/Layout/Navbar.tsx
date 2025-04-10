@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import SocialLinks from '../SocialLinks';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-ice text-2xl font-bold text-icecream-blue">Scoop There It Is</span>
+            <img 
+              src="/lovable-uploads/013a76a0-1e1b-4894-bf24-4d32016e5de0.png" 
+              alt="Scoop There It Is Logo" 
+              className="h-16 w-auto"
+            />
           </Link>
           
           {/* Desktop Navigation */}
@@ -24,6 +29,7 @@ const Navbar = () => {
             <Link to="/menu" className="nav-link">Menu</Link>
             <Link to="/cake-decorating" className="nav-link">Cake Decorating</Link>
             <Link to="/about-us" className="nav-link">About Us</Link>
+            <SocialLinks />
           </div>
           
           {/* Mobile Menu Button */}
@@ -69,6 +75,7 @@ const Navbar = () => {
             >
               About Us
             </Link>
+            <SocialLinks className="py-2 px-4" />
           </div>
         </div>
       )}
