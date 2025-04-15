@@ -285,10 +285,16 @@ const CakeDecorating = () => {
             Contact us directly and we'll help make your sweet dreams come true!
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button as="a" href="tel:9853279617" className="bg-icecream-blue hover:bg-icecream-blue/80">
+            <Button 
+              className="bg-icecream-blue hover:bg-icecream-blue/80"
+              onClick={() => window.location.href = 'tel:9853279617'}
+            >
               Call Us: (985) 327-9617
             </Button>
-            <Button as="a" href="mailto:whitemegan404@gmail.com" className="bg-icecream-pink hover:bg-icecream-pink/80">
+            <Button 
+              className="bg-icecream-pink hover:bg-icecream-pink/80"
+              onClick={() => window.location.href = 'mailto:whitemegan404@gmail.com'}
+            >
               Email Us
             </Button>
           </div>
