@@ -27,7 +27,6 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-6">
             <Link to="/" className="nav-link">Home</Link>
             <Link to="/menu" className="nav-link">Menu</Link>
-            <Link to="/cake-decorating" className="nav-link">Cake Decorating</Link>
             <Link to="/about-us" className="nav-link">About Us</Link>
             <SocialLinks />
           </div>
@@ -62,13 +61,6 @@ const Navbar = () => {
               Menu
             </Link>
             <Link 
-              to="/cake-decorating" 
-              className="py-2 px-4 hover:bg-icecream-blue/10 rounded-lg"
-              onClick={() => setIsOpen(false)}
-            >
-              Cake Decorating
-            </Link>
-            <Link 
               to="/about-us" 
               className="py-2 px-4 hover:bg-icecream-blue/10 rounded-lg"
               onClick={() => setIsOpen(false)}
@@ -84,3 +76,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
